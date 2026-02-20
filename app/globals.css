@@ -1,0 +1,340 @@
+/* Windows 10 Portfolio - CSS Variables & Base */
+:root {
+  --taskbar-height: 48px;
+  --title-bar-height: 32px;
+  --win10-bg: #0078d4;
+  --taskbar-bg: #2d2d2d;
+  --taskbar-hover: #3d3d3d;
+  --title-bar-bg: #e5e5e5;
+  --title-bar-text: #1a1a1a;
+  --window-bg: #ffffff;
+  --window-border: #d0d0d0;
+  --btn-close: #e81123;
+  --btn-close-hover: #f1707a;
+  --btn-minimize: #e5e5e5;
+  --btn-minimize-hover: #d0d0d0;
+  --btn-maximize: #e5e5e5;
+  --btn-maximize-hover: #d0d0d0;
+  --font-segoe: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-segoe);
+}
+
+.win10-body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Desktop */
+.desktop {
+  position: fixed;
+  inset: 0;
+  bottom: var(--taskbar-height);
+  background: linear-gradient(135deg, #0078d4 0%, #00bcf2 50%, #0078d4 100%);
+  background-size: cover;
+  background-position: center;
+}
+
+.desktop-icons {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 8px;
+  padding: 16px;
+  width: max-content;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 80px;
+  padding: 4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  user-select: none;
+}
+
+.desktop-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.desktop-icon:active {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.desktop-icon-image {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 4px;
+}
+
+.desktop-icon-label {
+  font-size: 12px;
+  text-align: center;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+/* Taskbar */
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--taskbar-height);
+  background: var(--taskbar-bg);
+  display: flex;
+  align-items: center;
+  z-index: 10000;
+}
+
+.taskbar-start {
+  width: 48px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+}
+
+.taskbar-start:hover {
+  background: var(--taskbar-hover);
+}
+
+.taskbar-search {
+  width: 320px;
+  height: 36px;
+  margin: 0 8px;
+  padding: 0 12px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.taskbar-search::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.taskbar-pinned {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 8px;
+}
+
+.taskbar-pinned-item {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+}
+
+.taskbar-pinned-item:hover {
+  background: var(--taskbar-hover);
+}
+
+.taskbar-pinned-item img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.taskbar-windows {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+  padding: 0 8px;
+  min-width: 0;
+}
+
+.taskbar-window-btn {
+  height: 40px;
+  min-width: 160px;
+  max-width: 200px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.taskbar-window-btn:hover {
+  background: var(--taskbar-hover);
+}
+
+.taskbar-window-btn.active {
+  background: var(--taskbar-hover);
+  border-bottom-color: #0078d4;
+}
+
+.taskbar-tray {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  height: 100%;
+  color: #fff;
+  font-size: 12px;
+}
+
+.taskbar-tray-item {
+  padding: 0 6px;
+  cursor: default;
+}
+
+.taskbar-time {
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0 12px;
+  line-height: 1.2;
+}
+
+/* Window */
+.win10-window {
+  position: fixed;
+  background: var(--window-bg);
+  border: 1px solid var(--window-border);
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.win10-window.maximized {
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: var(--taskbar-height) !important;
+  width: 100% !important;
+  height: calc(100vh - var(--taskbar-height)) !important;
+  border-radius: 0;
+}
+
+.win10-title-bar {
+  height: var(--title-bar-height);
+  min-height: var(--title-bar-height);
+  background: var(--title-bar-bg);
+  color: var(--title-bar-text);
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 8px;
+  cursor: move;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.win10-title-bar-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  object-fit: contain;
+}
+
+.win10-title-bar-title {
+  flex: 1;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.win10-title-bar-buttons {
+  display: flex;
+  height: 100%;
+}
+
+.win10-title-btn {
+  width: 46px;
+  height: 100%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 10px;
+  color: var(--title-bar-text);
+}
+
+.win10-title-btn.minimize {
+  background: var(--btn-minimize);
+}
+
+.win10-title-btn.minimize:hover {
+  background: var(--btn-minimize-hover);
+}
+
+.win10-title-btn.maximize {
+  background: var(--btn-maximize);
+}
+
+.win10-title-btn.maximize:hover {
+  background: var(--btn-maximize-hover);
+}
+
+.win10-title-btn.close {
+  background: var(--btn-close);
+  color: #fff;
+}
+
+.win10-title-btn.close:hover {
+  background: var(--btn-close-hover);
+}
+
+.win10-window-content {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+
+/* Resize handles */
+.win10-resize-handle {
+  position: absolute;
+  z-index: 1;
+}
+
+.win10-resize-handle.n { top: 0; left: 4px; right: 4px; height: 4px; cursor: n-resize; }
+.win10-resize-handle.s { bottom: 0; left: 4px; right: 4px; height: 4px; cursor: s-resize; }
+.win10-resize-handle.e { top: 4px; right: 0; bottom: 4px; width: 4px; cursor: e-resize; }
+.win10-resize-handle.w { top: 4px; left: 0; bottom: 4px; width: 4px; cursor: w-resize; }
+.win10-resize-handle.ne { top: 0; right: 0; width: 8px; height: 8px; cursor: ne-resize; }
+.win10-resize-handle.nw { top: 0; left: 0; width: 8px; height: 8px; cursor: nw-resize; }
+.win10-resize-handle.se { bottom: 0; right: 0; width: 8px; height: 8px; cursor: se-resize; }
+.win10-resize-handle.sw { bottom: 0; left: 0; width: 8px; height: 8px; cursor: sw-resize; }
+
+.win10-window.maximized .win10-resize-handle {
+  display: none;
+}
