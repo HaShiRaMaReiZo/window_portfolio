@@ -13,8 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="win10-body">{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="win10-body" suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

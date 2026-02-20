@@ -12,20 +12,12 @@ interface DesktopIconConfig {
 }
 
 const desktopIcons: DesktopIconConfig[] = [
-  {
-    id: "about",
-    label: "About Me",
-    icon: "/icons/about.svg",
-    contentKey: "about",
-    title: "About Me",
-  },
-  {
-    id: "projects",
-    label: "Project",
-    icon: "/icons/folder.svg",
-    contentKey: "projects",
-    title: "Projects",
-  },
+  { id: "thispc", label: "This PC", icon: "/icons/thispc.ico", contentKey: "thispc", title: "This PC" },
+  { id: "about", label: "About Me", icon: "/icons/about.ico", contentKey: "about", title: "About Me" },
+  { id: "projects", label: "Project", icon: "/icons/folder.ico", contentKey: "projects", title: "Projects" },
+  { id: "resume", label: "Resume", icon: "/icons/resume.ico", contentKey: "resume", title: "Resume" },
+  { id: "skills", label: "Skills", icon: "/icons/skills.ico", contentKey: "skills", title: "Skills" },
+  { id: "contact", label: "Contact", icon: "/icons/contact.ico", contentKey: "contact", title: "Contact" },
 ];
 
 export default function Desktop() {

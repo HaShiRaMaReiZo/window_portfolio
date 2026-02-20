@@ -1,4 +1,4 @@
-export type ContentKey = "about" | "projects";
+export type ContentKey = "about" | "projects" | "resume" | "skills" | "contact" | "thispc";
 
 export interface WindowState {
   id: string;
@@ -32,6 +32,10 @@ interface WindowStore {
 const defaultSize: Record<ContentKey, { width: number; height: number }> = {
   about: { width: 480, height: 420 },
   projects: { width: 640, height: 500 },
+  resume: { width: 520, height: 560 },
+  skills: { width: 480, height: 400 },
+  contact: { width: 420, height: 380 },
+  thispc: { width: 560, height: 420 },
 };
 
 import { create } from "zustand";
